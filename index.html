@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joyce Yu | Personal Homepage</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --text:#1a1a1a;
+      --sub:#666;
+      --primary:#5b7cff;
+      --border:#e8ecf5;
+    }
+    body.dark{
+      --bg:#0f1115;
+      --card:#171a21;
+      --text:#f5f7fb;
+      --sub:#aab2c5;
+      --primary:#7f9bff;
+      --border:#2a3040;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      transition:.25s;
+    }
+    .topbar{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(8px);
+      background:color-mix(in oklab, var(--bg) 82%, transparent);
+      border-bottom:1px solid var(--border);
+      display:flex;justify-content:space-between;align-items:center;
+      padding:12px 20px;
+    }
+    .btns button{
+      margin-left:8px;border:1px solid var(--border);background:var(--card);color:var(--text);
+      padding:8px 12px;border-radius:10px;cursor:pointer;
+    }
+    .container{max-width:980px;margin:28px auto;padding:0 16px;}
+    .card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:18px;padding:22px;margin-bottom:16px;
+      box-shadow:0 6px 20px rgba(0,0,0,.04);
+    }
+    .hero{display:grid;grid-template-columns:140px 1fr;gap:20px;align-items:center}
+    .avatar{
+      width:140px;height:140px;border-radius:18px;object-fit:cover;border:1px solid var(--border);
+    }
+    h1{margin:0 0 8px;font-size:30px}
+    .subtitle{color:var(--sub);margin:0 0 10px}
+    .typing{color:var(--primary);font-weight:600;min-height:26px}
+    h2{margin:0 0 14px;font-size:20px}
+    p,li{line-height:1.75}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .timeline li{margin:0 0 10px}
+    .tag{
+      display:inline-block;padding:6px 10px;border-radius:999px;
+      background:color-mix(in oklab, var(--primary) 14%, var(--card));
+      margin:0 8px 8px 0;font-size:14px
+    }
+    .contact a{color:var(--primary);text-decoration:none}
+    .qr{width:180px;border-radius:12px;border:1px solid var(--border)}
+    @media (max-width:760px){
+      .hero{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <strong id="navTitle">Joyce Yu</strong>
+    <div class="btns">
+      <button onclick="toggleLang()">中 / EN</button>
+      <button onclick="toggleTheme()">🌙 / ☀️</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="card hero">
+      <img src="avatar.jpg" alt="avatar" class="avatar">
+      <div>
+        <h1>Joyce Yu / 喻佳晨</h1>
+        <p class="subtitle" id="position">新媒体运营 · 数据驱动 · AI探索</p>
+        <div class="typing" id="typing"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="aboutTitle">关于我</h2>
+      <p id="aboutText">
+        我是广州商学院市场营销专业本科在读生，聚焦新媒体运营与内容增长。曾在小红书电商账号运营中负责短视频剪辑、链接转化与数据复盘，累计产出 320 条内容并协助实现 GMV 增长。熟练使用 AI 工具优化运营流程，期待在新媒体运营岗位持续放大内容与商业转化价值。
+      </p>
+    </section>
+
+    <section class="two">
+      <div class="card">
+        <h2 id="timelineTitle">个人动态</h2>
+        <ul class="timeline" id="timelineList">
+          <li><b>2026.04–2026.05</b>｜第139届广交会英语翻译，推动展后成交 GMV 50w+</li>
+          <li><b>2025.07–至今</b>｜悠缘物业经理助理，推进AI行政提效与跨岗协同</li>
+          <li><b>2025.02–2025.06</b>｜西子网络小红书电商运营项目，产出320条短视频，协助GMV 30w+</li>
+          <li><b>2023.10–2024.06</b>｜管理学院学生会学习部，完成35篇推文运营与活动执行</li>
+          <li><b>2023.09</b>｜入读广州商学院市场营销专业</li>
+          <li><b>在校期间</b>｜中国国际大学生创新大赛校级金奖，第一作者发表论文</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 id="skillsTitle">技能</h2>
+        <div id="skillsTags">
+          <span class="tag">小红书运营</span><span class="tag">内容增长</span><span class="tag">短视频剪辑</span>
+          <span class="tag">数据复盘</span><span class="tag">Office</span><span class="tag">LaTeX</span>
+          <span class="tag">CET-4 / CET-6</span><span class="tag">普通话二甲</span><span class="tag">会计初级</span>
+          <span class="tag">GPT / 豆包 / 元宝 / 即梦AI / Codex</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="projectTitle">项目经历</h2>
+      <ul id="projectList">
+        <li><b>西子 XiYo 生活馆小红书运营增长项目</b>：负责短视频剪辑、标题封面优化、链接挂载与数据复盘，助力账号内容转化增长。账号：<a href="https://xhslink.com/m/2mg1wUDx04Q" target="_blank">@XIYO生活馆（29.3K赞与收藏）</a></li>
+        <li><b>第139届广交会英语翻译与线索转化</b>：完成中英商务沟通与采购需求确认，累计接待客户20+组，有效线索14+，推动展后成交 GMV 50w+</li>
+        <li><b>学生会新媒体运营</b>：围绕活动预热与成果展示输出推文35篇，提升活动线上曝光与内容传播</li>
+      </ul>
+    </section>
+
+    <section class="card contact">
+      <h2 id="contactTitle">联系方式</h2>
+      <p>📧 Email：<a href="mailto:13927329215@163.com">13927313927329215@163.com</a></p>
+      <p>📱 Phone：<a href="tel:13927329215">13927329215</a></p>
+      <p>🧾 小红书：<a href="https://xhslink.com/m/2mg1wUDx04Q" target="_blank">@XIYO生活馆</a></p>
+      <p id="wechatText">欢迎扫码联系我</p>
+      <img src="wechat.png" alt="wechat qr" class="qr">
+    </section>
+  </div>
+
+  <script>
+    const typingWordsCN = ["新媒体运营", "内容增长", "短视频剪辑", "AI效率实践"];
+    const typingWordsEN = ["New Media Operator", "Content Growth", "Video Editor", "AI Productivity Explorer"];
+    let i=0,j=0,deleting=false,lang='zh';
+    const el=document.getElementById('typing');
+
+    function typeLoop(){
+      const words = lang==='zh'?typingWordsCN:typingWordsEN;
+      const w=words[i];
+      el.textContent=w.slice(0,j);
+      if(!deleting){ j++; if(j>w.length){deleting=true;setTimeout(typeLoop,900);return;}}
+      else{ j--; if(j===0){deleting=false;i=(i+1)%words.length;}}
+      setTimeout(typeLoop,deleting?60:110);
+    }
+    typeLoop();
+
+    function toggleTheme(){ document.body.classList.toggle('dark'); }
+
+    function toggleLang(){
+      lang = lang==='zh'?'en':'zh';
+      if(lang==='en'){
+        document.documentElement.lang="en";
+        document.getElementById('position').textContent="New Media Operations · Data-driven · AI Exploration";
+        document.getElementById('aboutTitle').textContent="About Me";
+        document.getElementById('aboutText').textContent="I am an undergraduate student majoring in Marketing at Guangzhou College of Commerce, focusing on new media operations and content growth. In Xiaohongshu e-commerce projects, I handled video editing, conversion setup, and data analysis, producing 320 pieces of content and supporting GMV growth. I actively leverage AI tools to improve operational efficiency and look forward to creating stronger content and business impact in new media roles.";
+        document.getElementById('timelineTitle').textContent="Timeline";
+        document.getElementById('skillsTitle').textContent="Skills";
+        document.getElementById('projectTitle').textContent="Projects";
+        document.getElementById('contactTitle').textContent="Contact";
+        document.getElementById('wechatText').textContent="Scan to contact me";
+      }else{
+        document.documentElement.lang="zh-CN";
+        document.getElementById('position').textContent="新媒体运营 · 数据驱动 · AI探索";
+        document.getElementById('aboutTitle').textContent="关于我";
+        document.getElementById('aboutText').textContent="我是广州商学院市场营销专业本科在读生，聚焦新媒体运营与内容增长。曾在小红书电商账号运营中负责短视频剪辑、链接转化与数据复盘，累计产出 320 条内容并协助实现 GMV 增长。熟练使用 AI 工具优化运营流程，期待在新媒体运营岗位持续放大内容与商业转化价值。";
+        document.getElementById('timelineTitle').textContent="个人动态";
+        document.getElementById('skillsTitle').textContent="技能";
+        document.getElementById('projectTitle').textContent="项目经历";
+        document.getElementById('contactTitle').textContent="联系方式";
+        document.getElementById('wechatText').textContent="欢迎扫码联系我";
+      }
+      j=0; deleting=false;
+    }
+  </script>
+</body>
+</html>
